@@ -1,17 +1,27 @@
-from heapq import nlargest, nsmallest
-
-
-def sum_two_smallest_numbers(numbers):
+def abbrev_name(name):
     """
-    For example,
-    when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
-    [10, 343445353, 3453445, 3453545353453] should return 3453455.
+    Write a function to convert a name into initials.
+    Str takes two words with one space in between them.
+    Sam Harris => S.H
+    patrick feeney => P.F
     """
-    mini = nsmallest(2, numbers)
-    maxi = nlargest(2, numbers)
-    print(sum(mini))
-    print(sum(maxi))
+    x = name.split()
+    abrev = []
+    for first in x:
+        abrev.append(first[0])
+    s = '.'.join(abrev)
+    print(s.upper())
 
 
-numbers = [19, 0, 42, 0, 77]
-sum_two_smallest_numbers(numbers)
+name = 'sam Harris'
+abbrev_name(name)
+
+
+# v2
+
+def abbrev_name_v2(name):
+    print('.'.join(x[0] for x in name.split()).upper())
+
+
+name = 'Poll Harris'
+abbrev_name_v2(name)
