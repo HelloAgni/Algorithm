@@ -1,15 +1,26 @@
-# Example [1,-4,7,12] => 1 + 7 + 12 = 20
+# For example, the string
+# "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+import re
 
-def positive_sum(arr):
-    # Your code here
-    sum = 0
-    for x in arr:
-        if x > 0:
-            sum += x
-    # return sum
-    print(sum)
+string_ = 'This website is for losers LOL!'
 
 
-arr = [1, -4, 7, 12]
+def disemvowel(string_):
+    string_ = re.sub(r'[AEIOU]', '', string_, flags=re.IGNORECASE)
+    # return string_
+    print(string_)
 
-positive_sum(arr)
+
+disemvowel(string_)
+
+# v2
+
+
+def disemvowel_v2(string_):
+    vowel = ('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
+    string_ = (string_.translate({ord(x): None for x in vowel}))
+    # return string_
+    print(string_)
+
+
+disemvowel_v2(string_)
