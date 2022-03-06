@@ -1,12 +1,23 @@
-def find_short(s):
+def descending_order(num):
     """
-    Simple, given a string of words, return the length of the shortest word(s).
+    Make a function that can take any non-negative integer
+    as an argument and return it with its digits in descending order.
+    Input: 42145 Output: 54421
+    Input: 145263 Output: 654321
+    Input: 123456789 Output: 987654321
     """
-    word = s.split(' ')
-    print(word)
-    word.sort(key=len)
-    print(len(word[0]))
+    string = str(num)
+    sorting = sorted(string, reverse=True)
+    descend = ''.join(sorting)
+    print(int(descend))
 
 
-s = "Let's travel abroad shall we"
-find_short(s)
+# v2
+
+def descending_order_v2(num):
+    print(int("".join(sorted(str(num), reverse=True))))
+
+
+num = '145263'
+descending_order(num)
+descending_order_v2(num)
