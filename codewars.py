@@ -1,33 +1,12 @@
-from re import sub
-
-
-def to_camel_case(text):
+def find_short(s):
     """
-    Convert string to camel case
-    "the-stealth-warrior" gets converted to "theStealthWarrior"
-    "The_Stealth_Warrior" gets converted to "TheStealthWarrior"
+    Simple, given a string of words, return the length of the shortest word(s).
     """
-    if text == '':
-        print(text)
-    elif text[0] == text[0].lower():
-        text = sub(r"(_|-)+", " ", text).title().replace(" ", "")
-        print(f'1ый - {text}')
-        first_lower = ''.join([text[0].lower(), text[1:]])
-        print(f'2ый - {first_lower}')
-    else:
-        text = sub(r"(_|-)+", " ", text).title().replace(" ", "")
-        print(f'3ий - {text}')
+    word = s.split(' ')
+    print(word)
+    word.sort(key=len)
+    print(len(word[0]))
 
 
-# v2
-
-def to_camel_case_v2(text):
-    new_text = sub('[_-](.)', lambda x: x.group(1).upper(), text)
-    print(new_text)
-
-
-# text = 'the-stealth-warrior'
-text = 'The_Stealth_Warrior'
-# text = ''
-to_camel_case(text)
-to_camel_case_v2(text)
+s = "Let's travel abroad shall we"
+find_short(s)
