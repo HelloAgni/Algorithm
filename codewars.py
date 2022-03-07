@@ -1,23 +1,24 @@
-def descending_order(num):
+def count_by(x, n):
     """
-    Make a function that can take any non-negative integer
-    as an argument and return it with its digits in descending order.
-    Input: 42145 Output: 54421
-    Input: 145263 Output: 654321
-    Input: 123456789 Output: 987654321
+    Create a function with two arguments that
+    will return an array of the first (n) multiples of (x)...
+    Examples:
+    count_by(1,10) #should return [1,2,3,4,5,6,7,8,9,10]
+    count_by(2,5) #should return [2,4,6,8,10]
     """
-    string = str(num)
-    sorting = sorted(string, reverse=True)
-    descend = ''.join(sorting)
-    print(int(descend))
-
+    new = []
+    for g in range(1, n+1):
+        new.append(g*x)
+    print(new)
 
 # v2
 
-def descending_order_v2(num):
-    print(int("".join(sorted(str(num), reverse=True))))
+
+def count_by_v2(x, n):
+    print([i * x for i in range(1, n+1)])
 
 
-num = '145263'
-descending_order(num)
-descending_order_v2(num)
+x = 1
+n = 10
+count_by(x, n)
+count_by_v2(x, n)
