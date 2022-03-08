@@ -1,28 +1,25 @@
+def accum(s):
+    """
+    Examples:
+    accum("abcd") -> "A-Bb-Ccc-Dddd"
+    accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+    accum("cwAt") -> "C-Ww-Aaa-Tttt"
+    """
+    count = 0
+    new_list = []
+    for x in s:
+        count += 1
+        new_list.append(x*count)
+    print(new_list)
+    print('-'.join(new_list).title())
 
-def is_isogram(string):
-    """
-    An isogram is a word that has no repeating letters,
-    consecutive or non-consecutive.
-    Assume the empty string is an isogram. Ignore letter case.
-    Example: (Input --> Output)
-    "Dermatoglyphics" --> true
-    "aba" --> false
-    "moOse" --> false (ignore letter case)
-    """
-    if (len(string) == len(set(string.lower()))):
-        print('its okay')
-        return True
-    else:
-        print('something going wrong')
-        return False
 
 # v2
 
+def accum_v2(s):
+    print('-'.join(c.upper() + c.lower() * i for i, c in enumerate(s)))
 
-def is_isogram_v2(string):
-    return len(string) == len(set(string.lower()))
 
-
-string = "Dermatoglyphics"
-is_isogram(string)
-is_isogram_v2(string)
+s = "RqaEzty"
+accum(s)
+accum_v2(s)
