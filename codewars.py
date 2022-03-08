@@ -1,24 +1,24 @@
-def count_by(x, n):
+def invert(lst):
     """
-    Create a function with two arguments that
-    will return an array of the first (n) multiples of (x)...
-    Examples:
-    count_by(1,10) #should return [1,2,3,4,5,6,7,8,9,10]
-    count_by(2,5) #should return [2,4,6,8,10]
+    Given a set of numbers, return the additive inverse of each.
+    Each positive becomes negatives, and the negatives become positives.
+    Example:
+    invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+    invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+    invert([]) == []
     """
     new = []
-    for g in range(1, n+1):
-        new.append(g*x)
+    for x in lst:
+        new.append(-1*x)
     print(new)
 
 # v2
 
 
-def count_by_v2(x, n):
-    print([i * x for i in range(1, n+1)])
+def invert_v2(lst):
+    print([-x for x in lst])
 
 
-x = 1
-n = 10
-count_by(x, n)
-count_by_v2(x, n)
+lst = [1, 2, 3, 4, 5]
+invert(lst)
+invert_v2(lst)
