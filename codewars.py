@@ -1,24 +1,28 @@
-def invert(lst):
+
+def is_isogram(string):
     """
-    Given a set of numbers, return the additive inverse of each.
-    Each positive becomes negatives, and the negatives become positives.
-    Example:
-    invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
-    invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
-    invert([]) == []
+    An isogram is a word that has no repeating letters,
+    consecutive or non-consecutive.
+    Assume the empty string is an isogram. Ignore letter case.
+    Example: (Input --> Output)
+    "Dermatoglyphics" --> true
+    "aba" --> false
+    "moOse" --> false (ignore letter case)
     """
-    new = []
-    for x in lst:
-        new.append(-1*x)
-    print(new)
+    if (len(string) == len(set(string.lower()))):
+        print('its okay')
+        return True
+    else:
+        print('something going wrong')
+        return False
 
 # v2
 
 
-def invert_v2(lst):
-    print([-x for x in lst])
+def is_isogram_v2(string):
+    return len(string) == len(set(string.lower()))
 
 
-lst = [1, 2, 3, 4, 5]
-invert(lst)
-invert_v2(lst)
+string = "Dermatoglyphics"
+is_isogram(string)
+is_isogram_v2(string)
