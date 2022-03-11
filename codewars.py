@@ -1,22 +1,20 @@
-def to_float_array(arr):
+def over_the_road(address, n):
     """
-    Create the function that takes as a parameter a sequence of numbers
-    represented as strings and outputs a sequence of numbers.
-    Example:["1", "2", "3"] to [1, 2, 3]
-    Note that you can receive floats as well.
+    You would like to find out the house number of the people
+    on the other side of the street.
+    Example (address, n --> output)
+    Given your house number address and length of street n,
+    give the house number on the opposite side of the street.
+    1, 3 --> 6      Street:     1|   |8
+    3, 3 --> 4                  3|   |6
+    2, 3 --> 5                  5|   |4
+    3, 5 --> 8                  7|   |2
     """
-    new = []
-    for x in arr:
-        new.append(float(x))
-    print(new)
-
+    print((n*2) - address + 1)
 
 # v2
 
-def to_float_array_v2(arr):
-    print(list(map(float, arr)))
 
-
-arr = ["1", "2", "3"]
-to_float_array(arr)
-to_float_array_v2(arr)
+address = 1  # 5
+n = 1
+over_the_road(address, n)
