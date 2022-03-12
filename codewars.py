@@ -1,27 +1,27 @@
-import re
-
-
-def solve(s):
+def capitalize(s,  ind):
     """
-    The vowel substrings in the word codewarriors are o,e,a,io.
-    The longest of these has a length of 2.
-    Given a lowercase string that has alphabetic characters only
-    (both vowels and consonants) and no spaces,
-    return the length of the longest vowel substring. Vowels are any of aeiou.
+    Given a string and an array of integers representing indices,
+    capitalize all letters at the given indices.
+    For example:
+    capitalize("abcdef",[1,2,5]) = "aBCdeF"
+    capitalize("abcdef",[1,2,5,100]) = "aBCdeF". There is no index 100.
     """
-    y = re.split(r'(?=[^oeaiou])', s)
-    print(y)
-    long = max(y, key=len)
-    print(len(long)-1)
-
+    s = list(s)
+    for count, x in enumerate(s):
+        if count in ind:
+            s[count] = s[count].upper()
+    print(s)
+    print(''.join(s))
 
 # v2
-def solve_v2(s):
-    print(
-        max(map(len, ''.join(c if c in 'aeiou' else ' ' for c in s).split()))
-        )
 
 
-s = 'chrononhotonthuooaos'  # 5
-solve(s)
-solve_v2(s)
+def capitalize_v2(s, ind):
+    ind = set(ind)
+    print(''.join(c.upper() if i in ind else c for i, c in enumerate(s)))
+
+
+s = 'abcdef'  # "aBCdeF"
+ind = [1, 2, 5, 100]
+capitalize(s, ind)
+capitalize_v2(s, ind)
