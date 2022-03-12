@@ -1,20 +1,25 @@
-def over_the_road(address, n):
+def is_triangle(a, b, c):
     """
-    You would like to find out the house number of the people
-    on the other side of the street.
-    Example (address, n --> output)
-    Given your house number address and length of street n,
-    give the house number on the opposite side of the street.
-    1, 3 --> 6      Street:     1|   |8
-    3, 3 --> 4                  3|   |6
-    2, 3 --> 5                  5|   |4
-    3, 5 --> 8                  7|   |2
+    Implement a function that accepts 3 integer values a, b, c.
+    The function should return true if a triangle can be built
+    with the sides of given length and false in any other case.
+    (In this case, all triangles must have surface greater than 0).
     """
-    print((n*2) - address + 1)
+    if (a + b) > c and (b + c) > a and (a + c) > b:
+        print(True)
+    else:
+        print(False)
 
 # v2
 
 
-address = 1  # 5
-n = 1
-over_the_road(address, n)
+def is_triangle_v2(a, b, c):
+    print((a < b + c) and (b < a + c) and (c < a + b))
+
+
+a = 7
+b = 2
+c = 2
+is_triangle(a, b, c)
+is_triangle_v2(a, b, c)
+
