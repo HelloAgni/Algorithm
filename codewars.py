@@ -1,27 +1,13 @@
-def capitalize(s,  ind):
+def wrap(value):
     """
-    Given a string and an array of integers representing indices,
-    capitalize all letters at the given indices.
-    For example:
-    capitalize("abcdef",[1,2,5]) = "aBCdeF"
-    capitalize("abcdef",[1,2,5,100]) = "aBCdeF". There is no index 100.
+    A function wrap(value) that takes a value of arbitrary type and wraps it in
+    Python Dict setting the 'value' key on the new Object
+    or Dict to the passed-in value.
+    wrapper_obj = wrap("my_wrapped_string");
+    # wrapper_obj should be  {"value":"my_wrapped_string"}
     """
-    s = list(s)
-    for count, x in enumerate(s):
-        if count in ind:
-            s[count] = s[count].upper()
-    print(s)
-    print(''.join(s))
-
-# v2
+    print({'value': value})
 
 
-def capitalize_v2(s, ind):
-    ind = set(ind)
-    print(''.join(c.upper() if i in ind else c for i, c in enumerate(s)))
-
-
-s = 'abcdef'  # "aBCdeF"
-ind = [1, 2, 5, 100]
-capitalize(s, ind)
-capitalize_v2(s, ind)
+value = "my_wrapped_string"  # "aBCdeF"
+wrap(value)
