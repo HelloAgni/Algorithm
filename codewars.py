@@ -1,13 +1,27 @@
-def wrap(value):
+def add(n):
     """
-    A function wrap(value) that takes a value of arbitrary type and wraps it in
-    Python Dict setting the 'value' key on the new Object
-    or Dict to the passed-in value.
-    wrapper_obj = wrap("my_wrapped_string");
-    # wrapper_obj should be  {"value":"my_wrapped_string"}
+    Create a function add(n)/Add(n) which returns
+    a function that always adds n to any number
+    Example:
+    add_one = add(1)
+    add_one(3)  # 4
+
+    add_three = add(3)
+    add_three(3) # 6
     """
-    print({'value': value})
+    def add_s(x):
+        print(n + x)
+        return n + x
+    return add_s
+
+# v2
 
 
-value = "my_wrapped_string"  # "aBCdeF"
-wrap(value)
+def add_v2(n):
+    return lambda x: x + n
+
+
+add_one = add(1)
+add_one(3)
+add_three = add(3)
+add_three(3)
