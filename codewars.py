@@ -1,27 +1,23 @@
-def add(n):
-    """
-    Create a function add(n)/Add(n) which returns
-    a function that always adds n to any number
-    Example:
-    add_one = add(1)
-    add_one(3)  # 4
+from collections import Counter
 
-    add_three = add(3)
-    add_three(3) # 6
+
+def count(array):
     """
-    def add_s(x):
-        print(n + x)
-        return n + x
-    return add_s
+    Write a function that takes an array
+    and counts the number of each unique element present.
+    count(['james', 'james', 'john'])
+    { 'james' => 2, 'john' => 1}
+    """
+    unique = dict(zip(array, (array.count(i) for i in array)))
+    print(unique)
+
 
 # v2
+def count_v2(array):
+    x = Counter(array)
+    print(dict(x))
 
 
-def add_v2(n):
-    return lambda x: x + n
-
-
-add_one = add(1)
-add_one(3)
-add_three = add(3)
-add_three(3)
+array = ['a', 'a', 'b', 'b', 'b']  # { 'a': 2, 'b': 3 }
+count(array)
+count_v2(array)
