@@ -1,27 +1,27 @@
-def difference_of_squares(n):
+def nb_dig(n, d):
     """
-    Find the difference between the sum of the squares of the first n
-    natural numbers (1 <= n <= 100) and the square of their sum.
-    Example
-    For example, when n = 10:
-    The square of the sum of the numbers is:
-    (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10)**2 = 55**2 = 3025
-    The sum of the squares of the numbers is:
-    12 + 22 + 32 + 42 + 52 + 62 + 72 + 82 + 92 + 102 = 385
-    Difference Of Squares -> 3025 - 385 = 2640
+    Take an integer n (n >= 0) and a digit d (0 <= d <= 9) as an integer.
+    Square all numbers k (0 <= k <= n) between 0 and n.
+    Count the numbers of digits d used in the writing of all the k**2.
+    Call nb_dig (or nbDig or ...) the function taking n
+    and d as parameters and returning this count.
+    Examples:
+    n = 10, d = 1
+    the k*k are 0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100
+    We are using the digit 1 in: 1, 16, 81, 100. The total count is then 4.
     """
-    sum_of_sq = (sum(x for x in range(n + 1)))**2
-    sq_of_sum = sum(x**2 for x in range(n + 1))
-    print(sum_of_sq - sq_of_sum)
-
+    s = str([k*k for k in range(n+1)])
+    total = ''.join(s).count(str(d))
+    print(total)
 
 # v2
 
-def difference_of_squares_v2(n):
-    s = range(n + 1)
-    print((sum(s) ** 2) - (sum(x**2 for x in s)))
+
+def nb_dig_v2(n, d):
+    print(sum(str(i*i).count(str(d)) for i in range(n+1)))
 
 
 n = 10
-difference_of_squares(n)
-difference_of_squares_v2(n)
+d = 1
+nb_dig(n, d)
+nb_dig_v2(n, d)
