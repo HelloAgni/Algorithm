@@ -1,6 +1,8 @@
 import math
+import simple_decorator
 
 
+@simple_decorator.timer
 def strong_num(number):
     """
     Strong number is the number that the sum of the factorial
