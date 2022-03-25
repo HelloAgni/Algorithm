@@ -1,4 +1,4 @@
-import simple_decorator
+from my_decorators import simple_decorator
 
 
 @simple_decorator.timer
