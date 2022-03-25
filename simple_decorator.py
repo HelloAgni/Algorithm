@@ -12,16 +12,10 @@ def timer(function_to_decorate):
         run_time = end_time - start_time
         print(
             f'Функция {function_to_decorate.__name__}'
-            f' выполнена за {run_time:.5f} c.'
+            f' выполнена за {run_time:.7f} c.'
         )
         return value
     return wrapper_time
-
-
-@timer
-def just_func(num_times):
-    for _ in range(num_times):
-        sum([i**2 for i in range(1000)])
 
 
 def check_number(value=None):
@@ -66,10 +60,28 @@ def s_low(s):
     return s
 
 
+def case_swapping(func):
+    """Декоратор конвертирует регистр букв"""
+    @functools.wraps(func)
+    def wrapper(args):
+        new_string = ''.join(list(map(
+            lambda x: x.upper() if x == x.lower() else x.lower(), args)))
+        print(new_string)
+        return new_string
+    return wrapper
+
+
+@case_swapping
+def zero_string(string):
+    pass
+
+
+# Params
 num = (1, 2, 3, 5)
 s = 3
+string = 'HelloWorld'  # 'hELLOwORLD'
 
 if __name__ == '__main__':
-    # just_func(num_times=3)
-    # check_numbers(num)
+    check_numbers(num)
     s_low(s)
+    zero_string(string)
