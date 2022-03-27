@@ -1,29 +1,28 @@
-from collections import Counter
-
 from my_decorators import simple_decorator
 
 
 @simple_decorator.timer
-def find_uniq(arr):
+def get_order(order):
     """
-    There is an array with some numbers.
-    All numbers are equal except for one. Try to find it!
-    find_uniq([ 1, 1, 1, 2, 1, 1 ]) == 2
-    find_uniq([ 0, 0, 0.55, 0, 0 ]) == 0.55
+    "Burger Fries Chicken Pizza Pizza Pizza Sandwich Milkshake Milkshake Coke"
     """
-    for z, x in dict(Counter(arr)).items():
-        if x == 1:
-            print(z)
+    menu = ['burger',
+            'fries',
+            'chicken',
+            'pizza',
+            'sandwich',
+            'onionrings',
+            'milkshake',
+            'coke']
+    new_order = ''
+    for i in menu:
+        x = (i.capitalize() + ' ')
+        y = order.count(i)
+        new_order += x * y
+    print(new_order[:-1])
 
 # v2
 
 
-@simple_decorator.timer
-def find_uniq_v2(arr):
-    a, b = set(arr)
-    print(a if arr.count(a) == 1 else b)
-
-
-arr = [1, 1, 1, 2, 1, 1]  # 2
-find_uniq(arr)
-find_uniq_v2(arr)
+order = "milkshakepizzachickenfriescokeburgerpizzasandwichmilkshakepizza"
+get_order(order)
