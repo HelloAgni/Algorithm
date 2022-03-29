@@ -1,11 +1,13 @@
 def moving_average(timeseries, k):
-    result = []
-    sum1 = sum(timeseries[0:k])
-    result.append(sum1/k)
-    if len(timeseries) > k:
-        for i in range(1, n - k + 1):
-            sum1 = sum1 - timeseries[i - 1] + timeseries[i - 1 + k]
-            result.append(sum1 / k)
+    result = []  # Пустой массив.
+    # Первый раз вычисляем значение честно и сохраняем результат.
+    current_sum = sum(timeseries[0:k])
+    result.append(current_sum / k)
+    for i in range(0, len(timeseries) - k):
+        current_sum -= timeseries[i]
+        current_sum += timeseries[i+k]
+        current_avg = current_sum / k
+        result.append(current_avg)
     print(*result)
     return result
 

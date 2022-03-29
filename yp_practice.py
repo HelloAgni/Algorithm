@@ -1,23 +1,17 @@
 # ex_1
-import sys
+def twosum(numbers, k):
+    for i in range(0, len(numbers)):
+        for j in range(i+1, len(numbers)):
+            if numbers[i] + numbers[j] == k:
+                print(numbers[i], numbers[j])
+                return
+                # return numbers[i], numbers[j]
+    # По условию задачи пара обязательно должна найтись.
+    # если пара не найдена - вернём None, None (или можно выкинуть exception).
+    return print(None)
 
-a = int(input())
-b = int(input())
-sys.stdin.readline()
-print(a + b)
 
-
-# ex_2
 n = int(input())
-a = map(int, input().split(maxsplit=n))
-b = map(int, input().split(maxsplit=n))
-
-for z, x in zip(a, b):
-    print(z, x, end=' ')
-
-
-# test
-
-# n = int(input())
-# arr = list(map(int, input().split()))
-# print(" ".join(list(map(str, arr))))
+numbers = list(map(int, (input().split())))
+k = int(input())
+twosum(numbers, k)
