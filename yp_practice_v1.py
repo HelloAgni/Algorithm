@@ -1,18 +1,23 @@
-def moving_average(timeseries, k):
-    result = []  # Пустой массив.
-    # Первый раз вычисляем значение честно и сохраняем результат.
-    current_sum = sum(timeseries[0:k])
-    result.append(current_sum / k)
-    for i in range(0, len(timeseries) - k):
-        current_sum -= timeseries[i]
-        current_sum += timeseries[i+k]
-        current_avg = current_sum / k
-        result.append(current_avg)
-    print(*result)
-    return result
+def twosum_with_sort(numbers, X):
+    # Сортируем исходный массив стандартной функцией.
+    numbers.sort()
+
+    left = 0
+    right = len(numbers) - 1
+    while left < right:
+        current_sum = numbers[left] + numbers[right]
+        if current_sum == X:
+            print(numbers[left], numbers[right])
+            return numbers[left], numbers[right]
+        if current_sum < X:
+            left += 1
+        else:
+            right -= 1
+# Если ничего не нашлось в цикле, значит, нужной пары элементов в массиве нет.
+    return print(None)
 
 
 n = int(input())
-timeseries = list(map(int, input().split()))
+numbers = list(map(int, (input().split())))
 k = int(input())
-moving_average(timeseries, k)
+twosum_with_sort(numbers, k)
