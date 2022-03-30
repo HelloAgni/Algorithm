@@ -1,19 +1,11 @@
-def twosum_extra_ds(numbers, k):
-    # Создаём вспомогательную структуру данных с быстрым поиском элемента.
-    previous = set()
+import time
 
-    for a in numbers:
-        y = k - a
-        if y in previous:
-            print(y, a)
-            return a, y
-        else:
-            previous.add(a)
-    # Если ничего не нашлось в цикле, значит,пары элементов в массиве нет.
-    return print(None)
+time_start = time.time()
+i = 0
+while i < 100000000:
+    # Do nothing
+    i += 1
 
-
-n = int(input())
-numbers = list(map(int, (input().split())))
-k = int(input())
-twosum_extra_ds(numbers, k)
+time_finish = time.time()
+time_span = time_finish - time_start
+print(time_span, 'seconds')

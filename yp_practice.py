@@ -1,17 +1,13 @@
-# ex_1
-def twosum(numbers, k):
-    for i in range(0, len(numbers)):
-        for j in range(i+1, len(numbers)):
-            if numbers[i] + numbers[j] == k:
-                print(numbers[i], numbers[j])
-                return
-                # return numbers[i], numbers[j]
-    # По условию задачи пара обязательно должна найтись.
-    # если пара не найдена - вернём None, None (или можно выкинуть exception).
-    return print(None)
+# visitors - массив номеров пассажиров.
+# Каждый пассажир проехал столько раз, сколько раз встречается его номер
+visitors = [0, 2, 3, 2, 0, 4, 1, 1, 2]
+entries_by_visitor = [0] * 5
+best_visitor = 0
 
+for visitor in visitors:
+    entries_by_visitor[visitor] += 1
+    print(entries_by_visitor)
+    if entries_by_visitor[visitor] > entries_by_visitor[best_visitor]:
+        best_visitor = visitor
 
-n = int(input())
-numbers = list(map(int, (input().split())))
-k = int(input())
-twosum(numbers, k)
+print(best_visitor)
