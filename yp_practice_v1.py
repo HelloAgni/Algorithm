@@ -1,11 +1,12 @@
-import time
+# В первой строке записаны три случайных целых числа a, b и c.
+# Числа не превосходят 10*9 по модулю.
+# Напишите программу, которая по трём числам определяет, выиграл игрок или нет.
+# Выведите «WIN», если игрок выиграл, и «FAIL» в противном случае.
 
-time_start = time.time()
-i = 0
-while i < 100000000:
-    # Do nothing
-    i += 1
-
-time_finish = time.time()
-time_span = time_finish - time_start
-print(time_span, 'seconds')
+a, b, c = map(int, (input().split()))
+if a % 2 == 0 and b % 2 == 0 and c % 2 == 0:
+    print('WIN')
+elif a % 2 != 0 and b % 2 != 0 and c % 2 != 0:
+    print('WIN')
+else:
+    print('FAIL')
