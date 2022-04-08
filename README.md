@@ -1,6 +1,6 @@
 # Algorithm
 **Practice**
 
-- Codewars some examples (other in commits)
+- Codewars some examples.
 - YP practice.
 - Also practice with decorators.
