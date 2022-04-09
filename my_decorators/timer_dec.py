@@ -6,7 +6,7 @@ def main_timer(function_to_decorate):
     """
     @main_timer
         import sys
-        sys.path.insert(0, "../my_decorators")
+        sys.path.insert(0, "../My_decorators")
         from timer_dec import main_timer
     Время выполнения декорируемой функции
     """
