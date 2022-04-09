@@ -1,11 +1,6 @@
 import math
-import sys
-
-sys.path.insert(0, "../my_decorators")
-from timer_dec import main_timer
 
 
-@main_timer
 def degree_four(n):
     """
     Выведите «True», если число является степенью четырёх,
