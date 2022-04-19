@@ -11,19 +11,19 @@ def calc(line, operations):
     count = 0
     for i in line:
         if i == '+':
-            new[count - 2] += new[count - 1]
+            new[count - 2] = new[count - 2] + new[count - 1]
             count -= 1
             new.pop()
         if i == '-':
-            new[count - 2] -= new[count - 1]
+            new[count - 2] = new[count - 2] - new[count - 1]
             count -= 1
             new.pop()
         if i == '*':
-            new[count - 2] *= new[count - 1]
+            new[count - 2] = new[count - 2] * new[count - 1]
             count -= 1
             new.pop()
         if i == '/':
-            new[count - 2] //= new[count - 1]
+            new[count - 2] = new[count - 2] // new[count - 1]
             count -= 1
             new.pop()
         if i not in operations:
@@ -34,6 +34,7 @@ def calc(line, operations):
 
 if __name__ == '__main__':
     operations = ['+', '-', '*', '/']
-    line = [int(x) if x not in operations else x for x in input().split()]
+    line = input().split()
+    line = [int(x) if x not in operations else x for x in line]
     result = calc(line, operations)
     print(result)
