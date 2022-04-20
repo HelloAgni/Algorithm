@@ -1,6 +1,18 @@
 import sys
 
 
+class MaxItemsError(Exception):
+    """Достигнуто макимальное число элементов."""
+
+    pass
+
+
+class ZeroItemsError(Exception):
+    """Отсутствуют элементы для удаления."""
+
+    pass
+
+
 class Deck:
     """
     Реализовать структуру данных Дек,
@@ -14,44 +26,44 @@ class Deck:
     Если дек был пуст, то вывести «error».
     """
     def __init__(self, max):
-        self.deck = [None] * max
-        self.max = max
-        self.head = 0
-        self.tail = 0
-        self.size_deck = 0
+        self.__items = [None] * max
+        self.__max = max
+        self.__head = 0
+        self.__tail = 0
+        self.__size_deck = 0
 
     def push_back(self, value):
-        if self.size_deck != self.max:
-            self.deck[self.tail] = value
-            self.tail = (self.tail + 1) % self.max
-            self.size_deck += 1
+        if self.__size_deck != self.__max:
+            self.__items[self.__tail] = value
+            self.__tail = (self.__tail + 1) % self.__max
+            self.__size_deck += 1
         else:
-            print('error')
+            raise MaxItemsError
 
     def push_front(self, value):
-        if self.size_deck != self.max:
-            self.head = (self.head - 1) % self.max
-            self.deck[self.head] = value
-            self.size_deck += 1
+        if self.__size_deck != self.__max:
+            self.__head = (self.__head - 1) % self.__max
+            self.__items[self.__head] = value
+            self.__size_deck += 1
         else:
-            print('error')
+            raise MaxItemsError
 
     def pop_back(self):
-        if self.size_deck == 0:
-            return 'error'
-        self.tail = (self.tail - 1) % self.max
-        x = self.deck[self.tail]
-        self.deck[self.tail] = None
-        self.size_deck -= 1
+        if self.__size_deck == 0:
+            raise ZeroItemsError
+        self.__tail = (self.__tail - 1) % self.__max
+        x = self.__items[self.__tail]
+        self.__items[self.__tail] = None
+        self.__size_deck -= 1
         return x
 
     def pop_front(self):
-        if self.size_deck == 0:
-            return 'error'
-        x = self.deck[self.head]
-        self.deck[self.head] = None
-        self.head = (self.head + 1) % self.max
-        self.size_deck -= 1
+        if self.__size_deck == 0:
+            raise ZeroItemsError
+        x = self.__items[self.__head]
+        self.__items[self.__head] = None
+        self.__head = (self.__head + 1) % self.__max
+        self.__size_deck -= 1
         return x
 
     def size(self):
@@ -63,13 +75,14 @@ if __name__ == '__main__':
     m = int(input())
     deck = Deck(m)
     for _ in range(n):
-        line = sys.stdin.readline().rstrip()
-        command = line.split()
-        if 'push_back' in command:
-            deck.push_back(command[1])
-        if 'push_front' in line.split():
-            deck.push_front(command[1])
-        if 'pop_back' in command:
-            print(deck.pop_back())
-        if 'pop_front' in command:
-            print(deck.pop_front())
+        try:
+            line = sys.stdin.readline().rstrip()
+            command = line.split()
+            if len(command) > 1:
+                getattr(deck, command[0])(command[1])
+            else:
+                print(getattr(deck, command[0])())
+        except MaxItemsError:
+            print('error')
+        except ZeroItemsError:
+            print('error')
