@@ -1,4 +1,7 @@
-def calc(line, operations):
+import operator
+
+
+class Calculator:
     """
     В единственной строке дано выражение,
     записанное в обратной польской нотации.
@@ -7,34 +10,33 @@ def calc(line, operations):
     по модулю не превосходящие 10000.
     Выведите единственное число — значение выражения.
     """
-    new = []
-    count = 0
-    for i in line:
-        if i == '+':
-            new[count - 2] = new[count - 2] + new[count - 1]
-            count -= 1
-            new.pop()
-        if i == '-':
-            new[count - 2] = new[count - 2] - new[count - 1]
-            count -= 1
-            new.pop()
-        if i == '*':
-            new[count - 2] = new[count - 2] * new[count - 1]
-            count -= 1
-            new.pop()
-        if i == '/':
-            new[count - 2] = new[count - 2] // new[count - 1]
-            count -= 1
-            new.pop()
-        if i not in operations:
-            new.append(i)
-            count += 1
-    return new[-1]
+    def __init__(self):
+        self.items = []
+        self.operations = {
+            '+': operator.add,
+            '-': operator.sub,
+            '*': operator.mul,
+            '/': operator.floordiv,
+            }
+        self.count = 0
+
+    def push(self, line):
+        for i in line:
+            if i in self.operations:
+                self.items[self.count - 2] = self.operations[i](
+                    self.items[self.count - 2], self.items[self.count - 1]
+                )
+                self.count -= 1
+                self.items.pop()
+            if i not in self.operations:
+                self.items.append(i)
+                self.count += 1
+        return self.items[-1]
 
 
 if __name__ == '__main__':
-    operations = ['+', '-', '*', '/']
+    calculations = Calculator()
     line = input().split()
-    line = [int(x) if x not in operations else x for x in line]
-    result = calc(line, operations)
+    line = [int(x) if x not in calculations.operations else x for x in line]
+    result = calculations.push(line)
     print(result)
