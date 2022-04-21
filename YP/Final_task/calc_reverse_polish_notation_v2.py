@@ -1,7 +1,7 @@
 import operator
 
 
-class Calculator:
+class Stack:
     """
     В единственной строке дано выражение,
     записанное в обратной польской нотации.
@@ -11,32 +11,41 @@ class Calculator:
     Выведите единственное число — значение выражения.
     """
     def __init__(self):
-        self.items = []
-        self.operations = {
+        self.__items = []
+        self.__operations = {
             '+': operator.add,
             '-': operator.sub,
             '*': operator.mul,
             '/': operator.floordiv,
             }
-        self.count = 0
+        self.__count = 0
 
     def push(self, line):
         for i in line:
-            if i in self.operations:
-                self.items[self.count - 2] = self.operations[i](
-                    self.items[self.count - 2], self.items[self.count - 1]
+            if i in self.__operations:
+                self.__items[self.__count - 2] = self.__operations[i](
+                    self.__items[self.__count - 2],
+                    self.__items[self.__count - 1]
                 )
-                self.count -= 1
-                self.items.pop()
-            if i not in self.operations:
-                self.items.append(i)
-                self.count += 1
-        return self.items[-1]
+                self.__count -= 1
+                self.pop()
+            if i not in self.__operations:
+                self.__items.append(i)
+                self.__count += 1
+        return self.__items[-1]
+
+    def pop(self):
+        if len(self.__items) != 0:
+            self.__items.pop()
+        else:
+            return 'error'
 
 
 if __name__ == '__main__':
-    calculations = Calculator()
+    calculations = Stack()
     line = input().split()
-    line = [int(x) if x not in calculations.operations else x for x in line]
+    line = [
+        int(x) if x not in calculations._Stack__operations else x for x in line
+        ]
     result = calculations.push(line)
     print(result)
