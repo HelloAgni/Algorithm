@@ -14,5 +14,10 @@ def duplicate_count(text):
     return len([x for x in Counter(text.lower()).values() if x > 1])
 
 
+def duplicate_count_v2(s):
+    return len([c for c in set(s.lower()) if s.lower().count(c) > 1])
+
+
 text = 'Indivisibilities'  # 2
 print(duplicate_count(text))
+print(duplicate_count_v2(text))
