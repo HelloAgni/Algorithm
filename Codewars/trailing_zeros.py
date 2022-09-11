@@ -10,8 +10,9 @@ def zeros(n):
     12! = 479001600 --> 2 trailing zeros
 
     ***Clue for solution***
-    Each multiple of 5 adds a 0
-    Each multiple of 25 adds two 0
+    Each multiple of 5^1 adds a 0
+    Each multiple of 5^2 adds a 0
+    Each multiple of 5^3 adds a 0...
     """
     i = 5
     count = 0
