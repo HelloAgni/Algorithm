@@ -14,7 +14,7 @@ def permutations(s):
 
 
 def permutations_v2(s):
-    return (''.join(x) for x in set(p(s)))
+    return list(''.join(x) for x in set(p(s)))
 
 
 st = 'abba'
