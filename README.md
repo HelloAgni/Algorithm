@@ -17,6 +17,7 @@
   * Does my number look big in this?
   * Multiplication table
   * Compare powers  
+  * Chmod calculator in octal  
   ...
 </details>
 
