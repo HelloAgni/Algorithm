@@ -40,6 +40,7 @@
 * Simple number triangle  
 * Rotate Array  
 * New Cashier Does Not Know About Space or Shift  
+* Count the smiley faces!
 #  
 
 <a href='https://github.com/HelloAgni/Algorithm/tree/main/Codewars/5_kyu'><b>5 kyu</b></a>  
