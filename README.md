@@ -69,5 +69,6 @@
   * So Many Permutations!
   * Strip Comments  
   * One Line Task: Zero Or One  
+  * Binary multiple of 3  
   ...
 </details>
