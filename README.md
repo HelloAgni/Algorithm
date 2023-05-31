@@ -1,3 +1,5 @@
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FHelloAgni%2FAlgorithm&count_bg=%2379C83D&title_bg=%23555555&icon=teamspeak.svg&icon_color=%23E7E7E7&title=views&edge_flat=false)](https://hits.seeyoufarm.com)
+
 # Algorithm
 **Practice** <img src="https://cdn-icons-png.flaticon.com/128/5968/5968350.png" height="35"/>
 
@@ -5,8 +7,8 @@
 - Codewars tasks.
 - YP tasks.
 
-***Codewars solutions:***   
 #  
+***Codewars solutions:***  
 
 <a href='https://github.com/HelloAgni/Algorithm/tree/main/Codewars/7_kyu'><b>7 kyu</b></a>  
 * Count the divisors of a number  
@@ -44,6 +46,7 @@
 * Count characters in your string  
 * Millipede of words  
 * Detect Pangram  
+* Permute a Palindrome  
 #  
 
 <a href='https://github.com/HelloAgni/Algorithm/tree/main/Codewars/5_kyu'><b>5 kyu</b></a>  
