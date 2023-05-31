@@ -43,6 +43,7 @@
 * Count the smiley faces!  
 * Count characters in your string  
 * Millipede of words  
+* Detect Pangram  
 #  
 
 <a href='https://github.com/HelloAgni/Algorithm/tree/main/Codewars/5_kyu'><b>5 kyu</b></a>  
