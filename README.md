@@ -48,6 +48,7 @@
 * Detect Pangram  
 * Permute a Palindrome  
 * Linked Lists - Remove Duplicates  
+* Consonant value  
 #  
 
 <a href='https://github.com/HelloAgni/Algorithm/tree/main/Codewars/5_kyu'><b>5 kyu</b></a>  
