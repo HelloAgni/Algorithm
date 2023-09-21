@@ -16,6 +16,7 @@
 * Find the vowels  
 * Split The Bill  
 * Thinkful - Object Drills: Quarks  
+* Simple Fun #7: Will You  
 #  
 
 <a href='https://github.com/HelloAgni/Algorithm/tree/main/Codewars/6_kyu'><b>6 kyu</b></a>  
