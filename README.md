@@ -66,7 +66,8 @@
 * Regex Password Validation  
 * Number of trailing zeros of N!  
 * Sum of Pairs  
-* ISBN-10 Validation
+* ISBN-10 Validation  
+* Biggest Sum  
 #  
 
 <a href='https://github.com/HelloAgni/Algorithm/tree/main/Codewars/4_kyu'><b>4 kyu</b></a>
