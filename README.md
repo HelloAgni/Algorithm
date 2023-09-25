@@ -51,6 +51,7 @@
 * Permute a Palindrome  
 * Linked Lists - Remove Duplicates  
 * Consonant value  
+* Sorting by bits  
 #  
 
 <a href='https://github.com/HelloAgni/Algorithm/tree/main/Codewars/5_kyu'><b>5 kyu</b></a>  
