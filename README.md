@@ -18,6 +18,7 @@
 * Thinkful - Object Drills: Quarks  
 * Simple Fun #7: Will You  
 * A Rule of Divisibility by 7  
+* Elevator Distance  
 #  
 
 <a href='https://github.com/HelloAgni/Algorithm/tree/main/Codewars/6_kyu'><b>6 kyu</b></a>  
