@@ -1,8 +1,3 @@
-"""
-Доктор принимает с 9 утра до 9 вечера.
-Часть времени у него занята (приемы, обед, уборка).
-Требуется сформировать список свободных окон по 30 минут.
-"""
 from datetime import datetime, timedelta
 
 DAY_START = datetime.strptime('09:00', '%H:%M')
@@ -52,9 +47,9 @@ def find_free(args: list[dict]) -> tuple[list[dict], list]:
             check_dur = current_start + VISIT_DURATION
             if check_dur <= datetime.strptime(_['start'], '%H:%M'):
                 result.append({'start_visit': '{:02d}:{:02d}'.format(
-                                current_start.hour, current_start.minute),
+                               current_start.hour, current_start.minute),
                                'end_visit': '{:02d}:{:02d}'.format(
-                                check_dur.hour, check_dur.minute)
+                               check_dur.hour, check_dur.minute)
                                })
                 result_v2.append('{:02d}:{:02d}'.format(
                     current_start.hour, current_start.minute))
